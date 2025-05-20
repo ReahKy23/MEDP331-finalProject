@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ancestors Archive</title>
+  <link rel="stylesheet" href="/stylesheets/index.css">
+  <link rel="stylesheet" href="/stylesheets/entries.css">
+</head>
+
+<body>
+  <div class="grid-container" id="entryGrid">
+    {{#each entries}}
+    <div class="post">
+      <p>{{this.message}}</p>
+      <span class="meta">{{this.name}}, {{this.birthYear}}–{{this.deathYear}}</span>
+    </div>
+    {{/each}}
+  </div>
+</body>
+
+</html>

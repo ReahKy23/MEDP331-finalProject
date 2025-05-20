@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/stylesheets/index.css" />
+<div id="heading">
+    <h1>we</h1>
+    <h1 id="color">are</h1>
+    <h1> here</h1>
+</div>
+
+
+
+<div id="about">
+    <div id="about-img"> about image</div>
+    <div id="about-text">
+        <h2>This is my great-grandfather</h2>
+        <p>Our ancestors are with us even after they leave this physical realm. They are in the shapes of our
+            bodies, the blood in our viens, and
+            every morsel of our being. They are here.
+        </p>
+        <p>This is our way to pay reverance to those who came before. By speaking their names. Telling their
+            stories.</p>
+    </div>
+
+
+</div>
+
+<button class="openModal" class="btn">+ Add New Entry</button>
+
+<!-- Modal Form (same fields as before) -->
+<div id="entryModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span id="closeModal" class="close"></span>
+        <h2>Add a New Ancestor Entry</h2>
+        <form action="/entries" method="POST">
+            <label>Name: <input type="text" name="name" required /></label><br />
+            <label>Birth Year:
+                <input type="number" name="birthYear" min="1000" max="2100" required />
+            </label><br />
+            <label>Death Year:
+                <input type="number" name="deathYear" min="1000" max="2100" />
+            </label><br />
+            <label>Region: <input type="text" name="region" /></label><br />
+            <label>Description:<br />
+                <textarea name="description" maxlength="280"></textarea>
+            </label><br />
+            <label>Image URL: <input type="url" name="imageUrl" /></label><br />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script src="/javascripts/index.js"></script>
