@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/entries', entriesRouter); // ✅ route to handle /entries
+app.use('/entries', entriesRouter);
 
 // Catch 404
 app.use(function(req, res, next) {
@@ -45,6 +45,9 @@ app.use(function(err, req, res, next) {
   // Render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+app.post('/submit-form', (req, res) => {
+  // handle the form data
 });
 
 module.exports = app;

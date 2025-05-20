@@ -6,11 +6,12 @@
 </div>
 
 
-
 <div id="about">
-    <div id="about-img"> about image</div>
+    <div id="about-img">
+        <img src="images/main-img.jpg" alt="main img">
+    </div>
     <div id="about-text">
-        <h2>This is my great-grandfather</h2>
+        <h2>We ARE Here</h2>
         <p>Our ancestors are with us even after they leave this physical realm. They are in the shapes of our
             bodies, the blood in our viens, and
             every morsel of our being. They are here.
@@ -22,13 +23,14 @@
 
 </div>
 
-<button class="openModal" class="btn">+ Add New Entry</button>
+<button id="openModal" class="btn">+ Add New Entry</button>
 
-<!-- Modal Form (same fields as before) -->
+<!-- Modal Form (this is where the uses fills out the html form) -->
+
 <div id="entryModal" class="modal" style="display:none;">
     <div class="modal-content">
         <span id="closeModal" class="close"></span>
-        <h2>Add a New Ancestor Entry</h2>
+        <h2>Tell Their Story</h2>
         <form action="/entries" method="POST">
             <label>Name: <input type="text" name="name" required /></label><br />
             <label>Birth Year:

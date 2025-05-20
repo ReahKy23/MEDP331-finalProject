@@ -1,27 +1,33 @@
-document.addEventListener('DOMContentLoaded', async () => {
-  const grid = document.getElementById('entryGrid');
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('modal');
+  const closeBtn = document.getElementById('closeModal');
 
-  try {
-    const res = await fetch('/api/entries');
-    const entries = await res.json();
+  const modalName = document.getElementById('modalName');
+  const modalYears = document.getElementById('modalYears');
+  const modalMessage = document.getElementById('modalMessage');
 
-    entries.forEach(entry => {
-      const div = document.createElement('div');
-      div.className = 'grid-item';
+  document.querySelectorAll('.post').forEach(post => {
+    post.addEventListener('click', () => {
+      const name = post.dataset.name || 'Unknown';
+      const birth = post.dataset.birth || '?';
+      const death = post.dataset.death || '?';
+      const description = post.dataset.description || 'No description provided';
 
-      // Format lifespan text
-      const birth = entry.birthYear || '—';
-      const death = entry.deathYear || '—';
+      modalName.textContent = name;
+      modalYears.textContent = `${birth}–${death}`;
+      modalMessage.textContent = description;
 
-      div.innerHTML = `
-        ${entry.imageUrl ? `<img src="${entry.imageUrl}" alt="${entry.name}">` : `<div class="image-placeholder">No Image</div>`}
-        <p class="lifespan">${birth}–${death}</p>
-      `;
-
-      grid.appendChild(div);
+      modal.classList.remove('hidden');
     });
+  });
 
-  } catch (err) {
-    console.error('Failed to fetch entries:', err);
-  }
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+    }
+  });
 });
