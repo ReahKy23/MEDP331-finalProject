@@ -31,21 +31,21 @@
     <div class="modal-content">
         <span id="closeModal" class="close"></span>
         <h2>Tell Their Story</h2>
-        <form action="/entries" method="POST">
-            <label>Name: <input type="text" name="name" required /></label><br />
-            <label>Birth Year:
-                <input type="number" name="birthYear" min="1000" max="2100" required />
-            </label><br />
-            <label>Death Year:
-                <input type="number" name="deathYear" min="1000" max="2100" />
-            </label><br />
-            <label>Region: <input type="text" name="region" /></label><br />
-            <label>Description:<br />
-                <textarea name="description" maxlength="280"></textarea>
-            </label><br />
-            <label>Image URL: <input type="url" name="imageUrl" /></label><br />
-            <button type="submit">Submit</button>
-        </form>
+        <form id="entryForm" action="/entries" method="POST">
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" required />
+
+  <label for="birthYear">Birth Year</label>
+  <input type="number" name="birthYear" id="birthYear" required min="0" max="2100" />
+
+  <label for="deathYear">Death Year</label>
+  <input type="number" name="deathYear" id="deathYear" required min="0" max="2100" />
+
+  <label for="description">Description</label>
+  <textarea name="description" id="description" required minlength="10"></textarea>
+
+  <button type="submit">Submit</button>
+</form>
     </div>
 </div>
 
